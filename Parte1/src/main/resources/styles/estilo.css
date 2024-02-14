@@ -1,0 +1,47 @@
+.boton{
+    -fx-background-color:  #c3f6ec;
+}
+.boton:hover{
+    -fx-background-color:  #65fef4;
+}
+.resultadoBack{
+    -fx-background-color: #5DFCF4;
+    -fx-border-color:#5ec8b3;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.botonControl{
+    -fx-background-color:  #808AF7;
+}
+
+.botonControl:hover{
+    -fx-background-color:  #b1b8f5;
+}
+
+.botonControlBasic{
+    -fx-background-color:  #3AACDD;
+}
+
+.botonControlBasic:hover{
+    -fx-background-color:  #88cfee;
+}
+
+.botonResultado{
+    -fx-background-color:  #54f8b4;
+}
+
+.botonResultado:hover{
+    -fx-background-color:  #0ed180;
+}
+
+.panelResultado{
+    -fx-border-color: #000000;
+    -fx-background-color:#ffffff;
+    -fx-background-radius:15;
+    -fx-border-radius:15;
+}
+
+.jfx-hamburger StackPane {
+     -fx-background-color: #ffffff; 
+}
