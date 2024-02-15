@@ -1,14 +1,23 @@
 package org.example.Controlador;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import org.example.Modelo.Operaciones_Matematicas;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class CalculadoraController
+public class CalculadoraController implements Initializable
 {
 
     @FXML
@@ -61,16 +70,19 @@ public class CalculadoraController
     boolean flag;
     @FXML
     private Label l_memoria;
+    @FXML
+    private MenuItem cientifica;
+    @FXML
+    private AnchorPane ventanaNormal;
 
-    @javafx.fxml.FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         operacion= "";
         enMemoria= "";
         flag=false;
         controlOperador(true);
 
     }
-
     private void mostrarMensajeError(String mensaje) {
         label_control.setText(mensaje);
         label_control.setVisible(true);
@@ -288,5 +300,28 @@ public class CalculadoraController
         c_signoMasMenos.setDisable(aux);
     }
 
+    public double getTamañoPreferidoAncho() {
+        return ventanaNormal.getPrefWidth();
+    }
 
+    public double getTamañoPreferidoAlto() {
+        return ventanaNormal.getPrefHeight();
+    }
+    @FXML
+    public void abrirCientifica(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/Vista/calculadoraCientificaController.fxml"));
+        AnchorPane panel = loader.load();
+
+        CalculadoraCientificaController cientificaController = loader.getController();
+
+        panel.setPrefWidth(cientificaController.getTamañoPreferidoAncho());
+        panel.setPrefHeight(cientificaController.getTamañoPreferidoAlto());
+
+        Scene nuevaScene = new Scene(panel);
+
+        Stage stage = (Stage) ventanaNormal.getScene().getWindow();
+        stage.setScene(nuevaScene);
+
+        stage.show();
+    }
 }

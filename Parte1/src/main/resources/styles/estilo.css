@@ -23,6 +23,14 @@
     -fx-background-color:  #3AACDD;
 }
 
+.botonControlCientifica{
+    -fx-background-color:  #3c7d99;
+}
+
+.botonControlCientifica:hover{
+    -fx-background-color:  #779dad;
+}
+
 .botonControlBasic:hover{
     -fx-background-color:  #88cfee;
 }
@@ -42,6 +50,27 @@
     -fx-border-radius:15;
 }
 
-.jfx-hamburger StackPane {
-     -fx-background-color: #ffffff; 
+
+
+.menu-bar {
+    -fx-background-color:  #141524;
 }
+
+.menu-bar .context-menu {
+    -fx-background-color: #141524; /* Cambia colorDeFondo del desplegable */
+}
+
+.menu-bar *{
+    -fx-text-fill: #ffffff;
+    -fx-font-size:14px;
+    -fx-font-weight:bold;
+}
+
+.menu:hover{
+    -fx-background-color: #62637a;
+}
+
+.menu .menu-item:hover {   
+    -fx-background-color: #62637a;
+}
+

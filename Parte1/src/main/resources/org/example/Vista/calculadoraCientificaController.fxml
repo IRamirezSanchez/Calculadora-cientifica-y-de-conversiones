@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXHamburger?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -14,12 +18,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="503.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Vista.CalculadoraCientificaController">
+<AnchorPane fx:id="ventanaCientifica" prefHeight="489.0" prefWidth="404.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.CalculadoraCientificaController">
    <children>
-      <Pane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="407.0" style="-fx-background-color: #141524;">
+      <Pane prefHeight="490.0" prefWidth="404.0" style="-fx-background-color: #141524;">
          <children>
-            <Pane layoutX="23.0" layoutY="58.0" prefHeight="67.0" prefWidth="364.0" styleClass="panelResultado" stylesheets="@../../../styles/estilo.css">
+            <Pane layoutX="20.0" layoutY="59.0" prefHeight="60.0" prefWidth="364.0" styleClass="panelResultado" stylesheets="@../../../styles/estilo.css">
                <children>
                   <Label fx:id="label_control" alignment="CENTER" layoutX="14.0" prefHeight="27.0" prefWidth="196.0" style="visibility: hidden;" textFill="#992323">
                      <font>
@@ -57,7 +60,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="b_cuatro" mnemonicParsing="false" onAction="#click_cuatro" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="4" GridPane.rowIndex="2">
+                  <Button fx:id="b_cuatro" mnemonicParsing="false" onAction="#click_cuatro" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="4" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -75,7 +78,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="b_siete" mnemonicParsing="false" onAction="#click_siete" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="7" GridPane.rowIndex="1">
+                  <Button fx:id="b_siete" mnemonicParsing="false" onAction="#click_siete" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="7" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -93,7 +96,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="b_ocho" mnemonicParsing="false" onAction="#click_ocho" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="b_ocho" mnemonicParsing="false" onAction="#click_ocho" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -111,7 +114,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="b_nueve" mnemonicParsing="false" onAction="#click_nueve" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button fx:id="b_nueve" mnemonicParsing="false" onAction="#click_nueve" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -129,7 +132,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="b_cinco" mnemonicParsing="false" onAction="#click_cinco" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button fx:id="b_cinco" mnemonicParsing="false" onAction="#click_cinco" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -147,7 +150,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="b_uno" mnemonicParsing="false" onAction="#click_uno" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="1" GridPane.rowIndex="3">
+                  <Button fx:id="b_uno" mnemonicParsing="false" onAction="#click_uno" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="1" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -201,7 +204,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="b_tres" mnemonicParsing="false" onAction="#click_tres" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <Button fx:id="b_tres" mnemonicParsing="false" onAction="#click_tres" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -219,7 +222,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="b_seis" mnemonicParsing="false" onAction="#click_seis" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Button fx:id="b_seis" mnemonicParsing="false" onAction="#click_seis" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -255,7 +258,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="b_dos" mnemonicParsing="false" onAction="#click_dos" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Button fx:id="b_dos" mnemonicParsing="false" onAction="#click_dos" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -309,7 +312,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="b_cero" mnemonicParsing="false" onAction="#click_cero" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="0" GridPane.rowIndex="4">
+                  <Button fx:id="b_cero" mnemonicParsing="false" onAction="#click_cero" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="0" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -417,7 +420,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_restar1" mnemonicParsing="false" onAction="#click_restar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="-" GridPane.columnIndex="4">
+                  <Button fx:id="c_potencia" mnemonicParsing="false" onAction="#click_dividir" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="X^ " GridPane.columnIndex="4">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -435,7 +438,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_sumar1" mnemonicParsing="false" onAction="#click_sumar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="+" GridPane.columnIndex="4">
+                  <Button fx:id="c_sen" mnemonicParsing="false" onAction="#click_multiplicar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="sen" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -453,7 +456,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_multiplicar1" mnemonicParsing="false" onAction="#click_multiplicar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="*" GridPane.columnIndex="4">
+                  <Button fx:id="c_cos" mnemonicParsing="false" onAction="#click_sumar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="cos" GridPane.columnIndex="4" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -471,61 +474,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_dividir1" mnemonicParsing="false" onAction="#click_dividir" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="/" GridPane.columnIndex="4">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <effect>
-                        <Lighting diffuseConstant="1.48" specularConstant="0.36" specularExponent="8.99" surfaceScale="1.04">
-                           <bumpInput>
-                              <Shadow />
-                           </bumpInput>
-                           <light>
-                              <Light.Distant />
-                           </light>
-                        </Lighting>
-                     </effect>
-                  </Button>
-                  <Button fx:id="c_multiplicar2" mnemonicParsing="false" onAction="#click_multiplicar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="*" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <effect>
-                        <Lighting diffuseConstant="1.48" specularConstant="0.36" specularExponent="8.99" surfaceScale="1.04">
-                           <bumpInput>
-                              <Shadow />
-                           </bumpInput>
-                           <light>
-                              <Light.Distant />
-                           </light>
-                        </Lighting>
-                     </effect>
-                  </Button>
-                  <Button fx:id="c_sumar2" mnemonicParsing="false" onAction="#click_sumar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="+" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <effect>
-                        <Lighting diffuseConstant="1.48" specularConstant="0.36" specularExponent="8.99" surfaceScale="1.04">
-                           <bumpInput>
-                              <Shadow />
-                           </bumpInput>
-                           <light>
-                              <Light.Distant />
-                           </light>
-                        </Lighting>
-                     </effect>
-                  </Button>
-                  <Button fx:id="c_restar2" mnemonicParsing="false" onAction="#click_restar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="-" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                  <Button fx:id="c_tan" mnemonicParsing="false" onAction="#click_restar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="tan" GridPane.columnIndex="4" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -545,7 +494,58 @@
                   </Button>
                </children>
             </GridPane>
-            <JFXHamburger layoutX="24.0" layoutY="14.0" prefHeight="27.0" prefWidth="38.0" stylesheets="@../../../styles/estilo.css" />
+            <MenuBar layoutX="23.0" layoutY="14.0" prefHeight="30.0" prefWidth="308.0" stylesheets="@../../../styles/estilo.css">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Archivo">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#CventanaNormal" text="Normal">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/40732_calculator_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Cientifica">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/40732_calculator_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Edicion">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Delete">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/40732_calculator_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Ayuda">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/40732_calculator_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
          </children>
       </Pane>
    </children>
