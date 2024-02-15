@@ -1,6 +1,7 @@
 package org.example.Controlador;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -81,6 +82,7 @@ public class CalculadoraController implements Initializable
         enMemoria= "";
         flag=false;
         controlOperador(true);
+        label_Resultado.requestFocus();
 
     }
     private void mostrarMensajeError(String mensaje) {
@@ -209,6 +211,7 @@ public class CalculadoraController implements Initializable
             if (enMemoria2 != null) {
                 label_Resultado.setText(operacion = operacion + enMemoria2);
                 l_memoria.setText("");
+                enMemoria2="";
                 controlOperador(false);
             }
         }catch(NullPointerException e){
@@ -323,5 +326,9 @@ public class CalculadoraController implements Initializable
         stage.setScene(nuevaScene);
 
         stage.show();
+    }
+
+    @FXML
+    public void pressedTeclado(Event event) {
     }
 }

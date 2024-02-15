@@ -1,12 +1,9 @@
 package org.example.Modelo;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 public class Operaciones_Matematicas {
     static double resultado;
     public static String operacion(String operacion) {
-        String[] partes = operacion.split("[/*\\-+]");
+        String[] partes = operacion.split("[/*\\-+^]");
         if (partes.length >= 2) {
             resultado = Double.parseDouble(partes[0]);
             // Iterar sobre los operadores y números restantes
@@ -46,7 +43,7 @@ public class Operaciones_Matematicas {
             operacion = "Error! Formato incorrecto.";
             return operacion;
         }
-        operacion= String.valueOf(resultado);
+        operacion= comprobarNumeroEntero(resultado);
         return operacion;
     }
 
@@ -56,21 +53,21 @@ public class Operaciones_Matematicas {
             String[] numeros= operacion.split("-");
 
             switch(numeros[1]){
-                case "sin":
+                case "sen":
                     result = Math.sin(Math.toRadians(Integer.parseInt(numeros[0])));
-                    operacion=String.valueOf(result);
+                    operacion=redondear(result);
                     break;
                 case "cos":
                     result = Math.cos(Math.toRadians(Integer.parseInt(numeros[0])));
-                    operacion=String.valueOf(result);
+                    operacion=redondear(result);
                     break;
                 case "tan":
                     result = Math.tan(Math.toRadians(Integer.parseInt(numeros[0])));
-                    operacion=String.valueOf(result);
+                    operacion=redondear(result);
                     break;
                 default:
                     result = 0;
-                    operacion=String.valueOf(result);
+                    operacion=redondear(result);
                     break;
             }
         }else{
@@ -79,6 +76,24 @@ public class Operaciones_Matematicas {
         return operacion;
     }
 
+
+    private static String comprobarNumeroEntero(double numero){
+        String aux="";
+        if (numero % 1 == 0) {
+            aux=String.valueOf((int) numero);
+        } else {
+            aux=String.valueOf(numero);
+        }
+        return aux;
+    }
+
+    private static String redondear(double numero){
+        int decimales = 9;
+        double factor = Math.pow(10, decimales);
+        double numeroRedondeado = Math.round(numero * factor) / factor;
+
+        return String.format("%.9f", numeroRedondeado);
+    }
 }
 
 

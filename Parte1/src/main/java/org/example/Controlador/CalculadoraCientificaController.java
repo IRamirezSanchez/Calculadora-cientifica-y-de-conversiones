@@ -8,17 +8,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.example.Modelo.Operaciones_Matematicas;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CalculadoraCientificaController implements Initializable
-{
+
+public class CalculadoraCientificaController implements Initializable {
 
     @FXML
     private Label label_control;
@@ -31,7 +31,6 @@ public class CalculadoraCientificaController implements Initializable
     private Button c_memoriaMenos;
     @FXML
     private Button c_signoMasMenos;
-
 
 
     @FXML
@@ -58,7 +57,6 @@ public class CalculadoraCientificaController implements Initializable
     private Button c_limpiar;
     @FXML
     private Label l_memoria;
-
 
 
     @FXML
@@ -92,41 +90,20 @@ public class CalculadoraCientificaController implements Initializable
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        operacion ="";
-        memoria="";
+        operacion = "";
+        memoria = "";
+        label_Resultado.requestFocus();
 
     }
 
-    @FXML
-    public void click_seis(ActionEvent actionEvent) {
-        operacion+='6';
-        label_Resultado.setText(operacion);
-    }
-
-    @FXML
-    public void click_punto(ActionEvent actionEvent) {
-        operacion+='.';
-        label_Resultado.setText(operacion);
-    }
-
-    @FXML
-    public void click_siete(ActionEvent actionEvent) {
-        operacion+='7';
-        label_Resultado.setText(operacion);
-    }
 
     @FXML
     public void click_resultado(ActionEvent actionEvent) {
-        String resultadoAux="";
-        if(operacion.contains("sin")||operacion.contains("tan")||operacion.contains("cos")){
-            resultadoAux=Operaciones_Matematicas.control_trigo(operacion);
-            label_Resultado.setText(resultadoAux);
-            operacion=resultadoAux;
-        }else{
-            resultadoAux=Operaciones_Matematicas.operacion(operacion);
-            label_Resultado.setText(resultadoAux);
-            operacion=resultadoAux;
-        }
+        String resultadoAux = "";
+        operacion.replace(',', '.');
+        resultadoAux = Operaciones_Matematicas.operacion(operacion);
+        label_Resultado.setText(resultadoAux);
+        operacion = resultadoAux;
     }
 
     @FXML
@@ -142,91 +119,141 @@ public class CalculadoraCientificaController implements Initializable
 
     @FXML
     public void click_memoriaRecuperar(ActionEvent actionEvent) {
-        operacion+=memoria;
+        operacion += memoria;
         label_Resultado.setText(operacion);
-    }
-
-    @FXML
-    public void click_sumar(ActionEvent actionEvent) {
-        operacion+='+';
-        label_Resultado.setText(operacion);
+        memoria = "";
     }
 
     @FXML
     public void click_resetear(ActionEvent actionEvent) {
-        operacion="";
+        operacion = "";
         label_Resultado.setText(operacion);
     }
 
     @FXML
-    public void click_tres(ActionEvent actionEvent) {
-        operacion+='3';
+    public void click_punto(ActionEvent actionEvent) {
+        operacion += '.';
         label_Resultado.setText(operacion);
     }
 
-    @FXML
-    public void click_cinco(ActionEvent actionEvent) {
-        operacion+='5';
-        label_Resultado.setText(operacion);
-    }
 
     @FXML
-    public void click_dos(ActionEvent actionEvent) {
-        operacion+='2';
-        label_Resultado.setText(operacion);
-    }
-
-    @FXML
-    public void click_nueve(ActionEvent actionEvent) {
-        operacion+='9';
-        label_Resultado.setText(operacion);
-    }
-
-    @FXML
-    public void click_dividir(ActionEvent actionEvent) {
-        operacion+='/';
-        label_Resultado.setText(operacion);
-    }
-
-    @FXML
-    public void click_cuatro(ActionEvent actionEvent) {
-        operacion+='4';
+    public void click_cero(ActionEvent actionEvent) {
+        operacion += '0';
         label_Resultado.setText(operacion);
     }
 
     @FXML
     public void click_uno(ActionEvent actionEvent) {
-        operacion+='1';
+        operacion += '1';
         label_Resultado.setText(operacion);
     }
 
     @FXML
-    public void click_restar(ActionEvent actionEvent) {
-        operacion+='-';
+    public void click_dos(ActionEvent actionEvent) {
+        operacion += '2';
+        label_Resultado.setText(operacion);
+    }
+
+    @FXML
+    public void click_tres(ActionEvent actionEvent) {
+        operacion += '3';
+        label_Resultado.setText(operacion);
+    }
+
+    @FXML
+    public void click_cuatro(ActionEvent actionEvent) {
+        operacion += '4';
+        label_Resultado.setText(operacion);
+    }
+
+    @FXML
+    public void click_cinco(ActionEvent actionEvent) {
+        operacion += '5';
+        label_Resultado.setText(operacion);
+    }
+
+    @FXML
+    public void click_seis(ActionEvent actionEvent) {
+        operacion += '6';
+        label_Resultado.setText(operacion);
+    }
+
+    @FXML
+    public void click_siete(ActionEvent actionEvent) {
+        operacion += '7';
         label_Resultado.setText(operacion);
     }
 
     @FXML
     public void click_ocho(ActionEvent actionEvent) {
-        operacion+='8';
+        operacion += '8';
         label_Resultado.setText(operacion);
     }
 
     @FXML
-    public void click_cero(ActionEvent actionEvent) {
-        operacion+='0';
+    public void click_nueve(ActionEvent actionEvent) {
+        operacion += '9';
+        label_Resultado.setText(operacion);
+    }
+
+
+    @FXML
+    public void click_sumar(ActionEvent actionEvent) {
+        operacion += '+';
+        label_Resultado.setText(operacion);
+    }
+
+    @FXML
+    public void click_dividir(ActionEvent actionEvent) {
+        operacion += '/';
+        label_Resultado.setText(operacion);
+    }
+
+    @FXML
+    public void click_restar(ActionEvent actionEvent) {
+        operacion += '-';
         label_Resultado.setText(operacion);
     }
 
     @FXML
     public void click_multiplicar(ActionEvent actionEvent) {
-        operacion+='*';
+        operacion += '*';
         label_Resultado.setText(operacion);
     }
 
+
     @FXML
-    public void porTeclado(Event event) {
+    public void click_sen(ActionEvent actionEvent) {
+        operacion += "-sen";
+        memoria = Operaciones_Matematicas.control_trigo(operacion);
+        label_Resultado.setText(memoria);
+        operacion = memoria;
     }
+
+    @FXML
+    public void click_tan(ActionEvent actionEvent) {
+        operacion += "-tan";
+        memoria = Operaciones_Matematicas.control_trigo(operacion);
+        label_Resultado.setText(memoria);
+        operacion = memoria;
+    }
+
+    @FXML
+    public void click_cos(ActionEvent actionEvent) {
+        operacion += "-cos";
+        memoria = Operaciones_Matematicas.control_trigo(operacion);
+        label_Resultado.setText(memoria);
+        operacion = memoria;
+
+    }
+
+    @FXML
+    public void click_potencia(ActionEvent actionEvent) {
+        operacion += "^";
+        label_Resultado.setText(operacion);
+    }
+
 
     public double getTamañoPreferidoAncho() {
         return ventanaCientifica.getPrefWidth();
@@ -235,6 +262,7 @@ public class CalculadoraCientificaController implements Initializable
     public double getTamañoPreferidoAlto() {
         return ventanaCientifica.getPrefHeight();
     }
+
 
     @FXML
     public void CventanaNormal(ActionEvent actionEvent) throws IOException {
@@ -254,24 +282,21 @@ public class CalculadoraCientificaController implements Initializable
         stage.show();
     }
 
-    @FXML
-    public void click_sen(ActionEvent actionEvent) {
-        operacion+="-sen";
-    }
 
     @FXML
-    public void click_tan(ActionEvent actionEvent) {
-        operacion+="-tan";
-    }
-
-    @FXML
-    public void click_potencia(ActionEvent actionEvent) {
-        operacion+="^";
-        label_Resultado.setText(operacion);
-    }
-
-    @FXML
-    public void click_cos(ActionEvent actionEvent) {
-        operacion+="-cos";
+    public void porTeclado(Event event) {
+        if (event instanceof KeyEvent) {
+            KeyEvent keyEvent = (KeyEvent) event;
+            String teclaPresionada = keyEvent.getText();
+            if (teclaPresionada.matches("[0-9+\\-/*,.]")) {
+                operacion += teclaPresionada;
+                label_Resultado.setText(operacion);
+            } else if (((KeyEvent) event).getCode() == KeyCode.BACK_SPACE) {
+                if (!operacion.isEmpty()) {
+                    operacion = operacion.substring(0, operacion.length() - 1);
+                    label_Resultado.setText(operacion);
+                }
+            }
+        }
     }
 }

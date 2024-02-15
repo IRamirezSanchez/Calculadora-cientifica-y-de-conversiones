@@ -29,14 +29,14 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="l_memoria" alignment="CENTER_RIGHT" layoutX="270.0" layoutY="1.0" prefHeight="27.0" prefWidth="67.0" textFill="#000000d3">
+                  <Label fx:id="l_memoria" alignment="CENTER_RIGHT" layoutX="283.0" layoutY="7.0" prefHeight="27.0" prefWidth="67.0" textFill="#000000d3">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="label_Resultado" layoutX="63.0" layoutY="16.0" prefHeight="36.0" prefWidth="207.0" textAlignment="CENTER">
+                  <Label fx:id="label_Resultado" layoutX="17.0" layoutY="7.0" prefHeight="45.0" prefWidth="253.0" textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="26.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="NONE" />
@@ -186,7 +186,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_restar" mnemonicParsing="false" onAction="#click_restar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                  <Button fx:id="c_restar" mnemonicParsing="false" onAction="#click_restar" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -240,7 +240,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_sumar" mnemonicParsing="false" onAction="#click_sumar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                  <Button fx:id="c_sumar" mnemonicParsing="false" onAction="#click_sumar" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -276,7 +276,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_multiplicar" mnemonicParsing="false" onAction="#click_multiplicar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="*" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Button fx:id="c_multiplicar" mnemonicParsing="false" onAction="#click_multiplicar" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="*" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -294,7 +294,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_limpiar" mnemonicParsing="false" onAction="#click_resetear" prefHeight="60.0" prefWidth="65.0" styleClass="botonControl" stylesheets="@../../../styles/estilo.css" text="C" GridPane.columnIndex="2">
+                  <Button fx:id="c_limpiar" mnemonicParsing="false" onAction="#click_resetear" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControl" stylesheets="@../../../styles/estilo.css" text="C" GridPane.columnIndex="2">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -330,7 +330,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_dividir" mnemonicParsing="false" onAction="#click_dividir" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="/" GridPane.columnIndex="3">
+                  <Button fx:id="c_dividir" mnemonicParsing="false" onAction="#click_dividir" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="/" GridPane.columnIndex="3">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -348,7 +348,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_punto" mnemonicParsing="false" onAction="#click_punto" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="." GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Button fx:id="c_punto" mnemonicParsing="false" onAction="#click_punto" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="." GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -384,7 +384,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_memoriaMas" mnemonicParsing="false" onAction="#click_memoriaRecuperar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControl" stylesheets="@../../../styles/estilo.css" text="M+">
+                  <Button fx:id="c_memoriaMas" mnemonicParsing="false" onAction="#click_memoriaRecuperar" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControl" stylesheets="@../../../styles/estilo.css" text="M+">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -402,7 +402,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_memoriaMenos" mnemonicParsing="false" onAction="#click_memoriaGuardar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControl" stylesheets="@../../../styles/estilo.css" text="M-" GridPane.columnIndex="1">
+                  <Button fx:id="c_memoriaMenos" mnemonicParsing="false" onAction="#click_memoriaGuardar" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControl" stylesheets="@../../../styles/estilo.css" text="M-" GridPane.columnIndex="1">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -420,7 +420,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_potencia" mnemonicParsing="false" onAction="#click_potencia" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="X^ " GridPane.columnIndex="4">
+                  <Button fx:id="c_potencia" mnemonicParsing="false" onAction="#click_potencia" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="X^ " GridPane.columnIndex="4">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -438,7 +438,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_sen" mnemonicParsing="false" onAction="#click_sen" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="sen" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                  <Button fx:id="c_sen" mnemonicParsing="false" onAction="#click_sen" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="sen" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -456,7 +456,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_cos" mnemonicParsing="false" onAction="#click_cos" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="cos" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                  <Button fx:id="c_cos" mnemonicParsing="false" onAction="#click_cos" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="cos" GridPane.columnIndex="4" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -474,7 +474,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_tan" mnemonicParsing="false" onAction="#click_tan" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="tan" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                  <Button fx:id="c_tan" mnemonicParsing="false" onAction="#click_tan" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="tan" GridPane.columnIndex="4" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>

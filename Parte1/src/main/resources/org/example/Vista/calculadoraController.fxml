@@ -22,17 +22,17 @@
    <children>
       <Pane layoutX="4.0" layoutY="44.0" prefHeight="50.0" prefWidth="298.0" styleClass="panelResultado" stylesheets="@../../../styles/estilo.css">
          <children>
-            <Label fx:id="label_control" alignment="CENTER" layoutX="14.0" prefHeight="27.0" prefWidth="196.0" style="visibility: hidden;" textFill="#992323">
+            <Label fx:id="label_control" alignment="CENTER" layoutX="14.0" prefHeight="50.0" prefWidth="231.0" style="visibility: hidden;" textFill="#992323">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="l_memoria" alignment="CENTER_RIGHT" layoutX="214.0" layoutY="2.0" prefHeight="27.0" prefWidth="67.0" textFill="#000000d3">
+            <Label fx:id="l_memoria" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="1.0" prefHeight="27.0" prefWidth="66.0" textFill="#000000d3">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="label_Resultado" layoutX="33.0" layoutY="11.0" prefHeight="36.0" prefWidth="207.0" textAlignment="CENTER">
+            <Label fx:id="label_Resultado" layoutX="14.0" layoutY="1.0" prefHeight="50.0" prefWidth="231.0" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -57,7 +57,7 @@
             <RowConstraints minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="b_cuatro" mnemonicParsing="false" onAction="#click_cuatro" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="4" GridPane.rowIndex="2">
+            <Button fx:id="b_cuatro" mnemonicParsing="false" onAction="#click_cuatro" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="4" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -75,7 +75,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="b_siete" mnemonicParsing="false" onAction="#click_siete" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="7" GridPane.rowIndex="1">
+            <Button fx:id="b_siete" accessibleHelp="Recuperar Numero" accessibleRoleDescription="Recuperar Numero" accessibleText="Recuperar Numero" mnemonicParsing="false" onAction="#click_siete" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="7" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -93,7 +93,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="b_ocho" mnemonicParsing="false" onAction="#click_ocho" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="b_ocho" mnemonicParsing="false" onAction="#click_ocho" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -111,7 +111,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="b_nueve" mnemonicParsing="false" onAction="#click_nueve" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="b_nueve" mnemonicParsing="false" onAction="#click_nueve" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -129,7 +129,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="b_cinco" mnemonicParsing="false" onAction="#click_cinco" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="b_cinco" mnemonicParsing="false" onAction="#click_cinco" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -147,7 +147,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="b_uno" mnemonicParsing="false" onAction="#click_uno" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="1" GridPane.rowIndex="3">
+            <Button fx:id="b_uno" mnemonicParsing="false" onAction="#click_uno" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="1" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -201,7 +201,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="b_tres" mnemonicParsing="false" onAction="#click_tres" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button fx:id="b_tres" mnemonicParsing="false" onAction="#click_tres" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -219,7 +219,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="b_seis" mnemonicParsing="false" onAction="#click_seis" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button fx:id="b_seis" mnemonicParsing="false" onAction="#click_seis" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -255,7 +255,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="b_dos" mnemonicParsing="false" onAction="#click_dos" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="b_dos" mnemonicParsing="false" onAction="#click_dos" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -309,7 +309,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="b_cero" mnemonicParsing="false" onAction="#click_cero" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="0" GridPane.rowIndex="4">
+            <Button fx:id="b_cero" mnemonicParsing="false" onAction="#click_cero" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="boton" stylesheets="@../../../styles/estilo.css" text="0" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
