@@ -420,7 +420,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_potencia" mnemonicParsing="false" onAction="#click_dividir" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="X^ " GridPane.columnIndex="4">
+                  <Button fx:id="c_potencia" mnemonicParsing="false" onAction="#click_potencia" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="X^ " GridPane.columnIndex="4">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -438,7 +438,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_sen" mnemonicParsing="false" onAction="#click_multiplicar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="sen" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                  <Button fx:id="c_sen" mnemonicParsing="false" onAction="#click_sen" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="sen" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -456,7 +456,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_cos" mnemonicParsing="false" onAction="#click_sumar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="cos" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                  <Button fx:id="c_cos" mnemonicParsing="false" onAction="#click_cos" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="cos" GridPane.columnIndex="4" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -474,7 +474,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="c_tan" mnemonicParsing="false" onAction="#click_restar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="tan" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                  <Button fx:id="c_tan" mnemonicParsing="false" onAction="#click_tan" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlCientifica" stylesheets="@../../../styles/estilo.css" text="tan" GridPane.columnIndex="4" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
