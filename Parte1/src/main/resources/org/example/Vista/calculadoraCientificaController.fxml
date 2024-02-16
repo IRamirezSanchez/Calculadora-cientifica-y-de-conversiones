@@ -511,7 +511,7 @@
                            <graphic>
                               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../images/40732_calculator_icon.png" />
+                                    <Image url="@../../../images/32385_calculator_math_icon.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -522,11 +522,7 @@
                      <items>
                         <MenuItem mnemonicParsing="false" text="Delete">
                            <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/40732_calculator_icon.png" />
-                                 </image>
-                              </ImageView>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </MenuItem>
                      </items>
@@ -535,11 +531,7 @@
                      <items>
                         <MenuItem mnemonicParsing="false" text="About">
                            <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/40732_calculator_icon.png" />
-                                 </image>
-                              </ImageView>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </MenuItem>
                      </items>

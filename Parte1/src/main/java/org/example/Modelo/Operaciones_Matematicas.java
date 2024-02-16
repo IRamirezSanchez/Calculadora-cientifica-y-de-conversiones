@@ -77,17 +77,17 @@ public class Operaciones_Matematicas {
     }
 
 
-    private static String comprobarNumeroEntero(double numero){
+    public static String comprobarNumeroEntero(double numero){
         String aux="";
         if (numero % 1 == 0) {
             aux=String.valueOf((int) numero);
         } else {
-            aux=String.valueOf(numero);
+            aux=redondear(numero);
         }
         return aux;
     }
 
-    private static String redondear(double numero){
+    public static String redondear(double numero){
         int decimales = 9;
         double factor = Math.pow(10, decimales);
         double numeroRedondeado = Math.round(numero * factor) / factor;

@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.fxml.FXML;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -258,8 +260,8 @@ public class CalculadoraController implements Initializable
                 label_Resultado.setText(String.valueOf((int) resultado));
                 enMemoria=String.valueOf((int)resultado);
             } else {
-                label_Resultado.setText(String.valueOf(resultado));
-                enMemoria=String.valueOf(resultado);
+                label_Resultado.setText(Operaciones_Matematicas.redondear(resultado));
+                enMemoria=Operaciones_Matematicas.redondear(resultado);
             }
             controlBotones(true);
             label_control.setVisible(false);
@@ -330,5 +332,19 @@ public class CalculadoraController implements Initializable
 
     @FXML
     public void pressedTeclado(Event event) {
+        if (event instanceof KeyEvent) {
+            KeyEvent keyEvent = (KeyEvent) event;
+            String teclaPresionada = keyEvent.getText();
+            if (teclaPresionada.matches("[0-9+\\-/*,.]")) {
+                operacion += teclaPresionada;
+                label_Resultado.setText(operacion);
+            } else if (((KeyEvent) event).getCode() == KeyCode.BACK_SPACE) {
+                if (!operacion.isEmpty()) {
+                    operacion = operacion.substring(0, operacion.length() - 1);
+                    label_Resultado.setText(operacion);
+                }
+            }
+        }
+        controlOperador(false);
     }
 }

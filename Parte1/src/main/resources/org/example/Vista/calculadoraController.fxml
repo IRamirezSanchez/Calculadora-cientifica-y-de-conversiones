@@ -183,7 +183,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="c_restar" mnemonicParsing="false" onAction="#click_restar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <Button fx:id="c_restar" mnemonicParsing="false" onAction="#click_restar" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -237,7 +237,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="c_sumar" mnemonicParsing="false" onAction="#click_sumar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <Button fx:id="c_sumar" mnemonicParsing="false" onAction="#click_sumar" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -273,7 +273,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="c_multiplicar" mnemonicParsing="false" onAction="#click_multiplicar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="*" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button fx:id="c_multiplicar" mnemonicParsing="false" onAction="#click_multiplicar" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="*" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -291,7 +291,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="c_limpiar" mnemonicParsing="false" onAction="#click_resetear" prefHeight="60.0" prefWidth="65.0" styleClass="botonControl" stylesheets="@../../../styles/estilo.css" text="C" GridPane.columnIndex="2">
+            <Button fx:id="c_limpiar" mnemonicParsing="false" onAction="#click_resetear" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControl" stylesheets="@../../../styles/estilo.css" text="C" GridPane.columnIndex="2">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -327,7 +327,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="c_dividir" mnemonicParsing="false" onAction="#click_dividir" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="/" GridPane.columnIndex="3">
+            <Button fx:id="c_dividir" mnemonicParsing="false" onAction="#click_dividir" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="/" GridPane.columnIndex="3">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -345,7 +345,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="c_punto" mnemonicParsing="false" onAction="#click_punto" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="." GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button fx:id="c_punto" mnemonicParsing="false" onAction="#click_punto" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text="." GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -381,7 +381,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="c_memoriaMas" mnemonicParsing="false" onAction="#click_memoriaRecuperar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControl" stylesheets="@../../../styles/estilo.css" text="M+">
+            <Button fx:id="c_memoriaMas" mnemonicParsing="false" onAction="#click_memoriaRecuperar" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControl" stylesheets="@../../../styles/estilo.css" text="M+">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
@@ -399,7 +399,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="c_memoriaMenos" mnemonicParsing="false" onAction="#click_memoriaGuardar" prefHeight="60.0" prefWidth="65.0" styleClass="botonControl" stylesheets="@../../../styles/estilo.css" text="M-" GridPane.columnIndex="1">
+            <Button fx:id="c_memoriaMenos" mnemonicParsing="false" onAction="#click_memoriaGuardar" onKeyPressed="#pressedTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControl" stylesheets="@../../../styles/estilo.css" text="M-" GridPane.columnIndex="1">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
@@ -436,7 +436,7 @@
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../images/40732_calculator_icon.png" />
+                              <Image url="@../../../images/32385_calculator_math_icon.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -447,11 +447,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="Delete">
                      <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/40732_calculator_icon.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </MenuItem>
                </items>
@@ -460,11 +456,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="About">
                      <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/40732_calculator_icon.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </MenuItem>
                </items>
