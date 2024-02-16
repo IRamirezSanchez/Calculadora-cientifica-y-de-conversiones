@@ -329,7 +329,23 @@ public class CalculadoraController implements Initializable
 
         stage.show();
     }
+    @FXML
+    public void CventanaConversor(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/Vista/calculadoraConversionesController.fxml"));
+        AnchorPane panel = loader.load();
 
+        CalculadoraConversionesController normalController = loader.getController();
+
+        panel.setPrefWidth(normalController.getTamañoPreferidoAncho());
+        panel.setPrefHeight(normalController.getTamañoPreferidoAlto());
+
+        Scene nuevaScene = new Scene(panel);
+
+        Stage stage = (Stage) ventanaNormal.getScene().getWindow();
+        stage.setScene(nuevaScene);
+
+        stage.show();
+    }
     @FXML
     public void pressedTeclado(Event event) {
         if (event instanceof KeyEvent) {

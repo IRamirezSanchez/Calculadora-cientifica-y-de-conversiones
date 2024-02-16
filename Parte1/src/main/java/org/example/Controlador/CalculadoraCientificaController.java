@@ -88,6 +88,7 @@ public class CalculadoraCientificaController implements Initializable {
     private AnchorPane ventanaCientifica;
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         operacion = "";
@@ -276,13 +277,29 @@ public class CalculadoraCientificaController implements Initializable {
 
         Scene nuevaScene = new Scene(panel);
 
-        Stage stage = (Stage) ventanaCientifica.getScene().getWindow();  // Obtiene la Stage actual
+        Stage stage = (Stage) ventanaCientifica.getScene().getWindow();
         stage.setScene(nuevaScene);
 
         stage.show();
     }
 
+    @FXML
+    public void CventanaConversor(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/Vista/calculadoraConversionesController.fxml"));
+        AnchorPane panel = loader.load();
 
+        CalculadoraConversionesController normalController = loader.getController();
+
+        panel.setPrefWidth(normalController.getTamañoPreferidoAncho());
+        panel.setPrefHeight(normalController.getTamañoPreferidoAlto());
+
+        Scene nuevaScene = new Scene(panel);
+
+        Stage stage = (Stage) ventanaCientifica.getScene().getWindow();
+        stage.setScene(nuevaScene);
+
+        stage.show();
+    }
     @FXML
     public void porTeclado(Event event) {
         if (event instanceof KeyEvent) {
@@ -299,4 +316,6 @@ public class CalculadoraCientificaController implements Initializable {
             }
         }
     }
+
+
 }

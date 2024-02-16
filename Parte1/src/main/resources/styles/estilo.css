@@ -74,3 +74,24 @@
     -fx-background-color: #62637a;
 }
 
+.choice-box {
+    -fx-background-radius: 10;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+}
+
+.choice-box .label {
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+}
+
+.choice-box .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-color: transparent;
+}
+
+.choice-box .list-cell:filled:selected, .choice-box .list-cell:filled:selected:hover {
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}

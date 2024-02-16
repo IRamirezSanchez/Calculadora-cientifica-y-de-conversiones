@@ -423,15 +423,6 @@
          <menus>
             <Menu mnemonicParsing="false" text="Archivo">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Normal">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/40732_calculator_icon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </MenuItem>
                   <MenuItem fx:id="cientifica" mnemonicParsing="false" onAction="#abrirCientifica" text="Cientifica">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -445,9 +436,13 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Edicion">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Delete">
+                  <MenuItem mnemonicParsing="false" onAction="#CventanaConversor" text="Conversor">
                      <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons8-cambio-de-divisas-35.png" />
+                           </image>
+                        </ImageView>
                      </graphic>
                   </MenuItem>
                </items>
@@ -456,12 +451,18 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="About">
                      <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons8-ayuda-30.png" />
+                           </image></ImageView>
                      </graphic>
                   </MenuItem>
                </items>
             </Menu>
          </menus>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </MenuBar>
    </children>
 </AnchorPane>

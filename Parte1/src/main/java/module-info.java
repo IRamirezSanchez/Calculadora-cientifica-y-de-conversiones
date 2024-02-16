@@ -6,6 +6,8 @@ module org.example.practica7_1 {
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.net.http;
+    requires com.google.gson;
 
     opens org.example.Controlador to javafx.fxml;
     exports org.example.Controlador;
