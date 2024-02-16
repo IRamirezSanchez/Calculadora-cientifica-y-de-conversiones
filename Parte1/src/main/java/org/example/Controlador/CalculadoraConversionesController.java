@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -71,6 +72,7 @@ public class CalculadoraConversionesController implements Initializable {
     private ConvertidorMonedas convertidor;
     private List<String> opciones;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         operacion="";
@@ -106,10 +108,10 @@ public class CalculadoraConversionesController implements Initializable {
 
     @FXML
     public void CabrirAyuda(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/Vista/panelConversion.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/Vista/infoPanelConversion.fxml"));
         Pane root = (Pane) loader.load();
         Stage stage = new Stage();
-        stage.setTitle("Ventana Modal");
+        stage.setTitle("Informacion Monetaria");
         stage.setScene(new Scene(root));
         stage.initModality(Modality.WINDOW_MODAL);
         stage.show();
@@ -254,5 +256,14 @@ public class CalculadoraConversionesController implements Initializable {
     }
 
 
-
+    @FXML
+    public void CventanaValorMoneda(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/Vista/panelConversion.fxml"));
+        Pane root = (Pane) loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Panel de Ajustes Conversion");
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.show();
+    }
 }

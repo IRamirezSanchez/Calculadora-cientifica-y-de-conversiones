@@ -12,7 +12,10 @@ public class ConvertidorMonedas {
     private final HttpClient httpClient = HttpClient.newHttpClient();
     private final Gson gson = new Gson();
 
-    private final String baseCurrency = "EUR";
+    private  String monedaBase;
+    private  String monedaTarget;
+
+    private  String valorDelCambio;
     private final String [] targetCurrencies = {"EUR","USD", "GBP", "AUD", "CAD", "CHF", "CNY", "SEK", "NZD", "NOK", "SGD", "MXN", "BRL", "ZAR", "HKD", "DKK"};
 
     public String getExchangeRate(String baseCurrency, String targetCurrency) {
@@ -36,6 +39,30 @@ public class ConvertidorMonedas {
             e.printStackTrace();
             return "Error al obtener la tasa de cambio";
         }
+    }
+
+    public String getMonedaBase() {
+        return monedaBase;
+    }
+
+    public void setMonedaBase(String monedaBase) {
+        this.monedaBase = monedaBase;
+    }
+
+    public String getMonedaTarget() {
+        return monedaTarget;
+    }
+
+    public void setMonedaTarget(String monedaTarget) {
+        this.monedaTarget = monedaTarget;
+    }
+
+    public String getValorDelCambio() {
+        return valorDelCambio;
+    }
+
+    public void setValorDelCambio(String valorDelCambio) {
+        this.valorDelCambio = valorDelCambio;
     }
 
     public String[] getTargetCurrencies() {

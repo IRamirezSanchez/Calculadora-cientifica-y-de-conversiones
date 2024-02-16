@@ -357,11 +357,11 @@
                   </Menu>
                   <Menu mnemonicParsing="false" text="Edicion">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Valor Conversion">
+                        <MenuItem mnemonicParsing="false" onAction="#CventanaValorMoneda" text="Valor Conversion">
                            <graphic>
                               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../images/icons8-cambio-de-divisas-35.png" />
+                                    <Image url="@../../../images/icons8-engranajes-30.png" />
                                  </image>
                               </ImageView>
                            </graphic>
