@@ -111,7 +111,6 @@ public class CalculadoraCientificaController implements Initializable {
     public void click_memoriaGuardar(ActionEvent actionEvent) {
         memoria = operacion;
         l_memoria.setText(memoria);
-
     }
 
     @FXML

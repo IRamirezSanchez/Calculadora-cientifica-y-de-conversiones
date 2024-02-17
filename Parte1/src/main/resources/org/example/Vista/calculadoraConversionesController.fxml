@@ -239,9 +239,9 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button mnemonicParsing="false" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" style="-fx-background-color: grey;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#Mem_limpiar" onKeyPressed="#porTeclado" prefHeight="60.0" prefWidth="65.0" styleClass="botonControlBasic" stylesheets="@../../../styles/estilo.css" text=" Mem" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <font>
-                        <Font name="System Bold" size="22.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="NONE" />

@@ -17,30 +17,37 @@ public class PanelConversion implements Initializable {
 
 
     @FXML
-    private ComboBox <String> CB_Base;
-    @FXML
     private TextField TF_Valor;
-    @FXML
-    private ComboBox <String> CB_Cambio;
     private ConvertidorMonedas convertidor;
     @FXML
     private Button BTN_ACEPTARySALIR;
     @FXML
     private Button BTN_SALIR;
+    private CalculadoraConversionesController controladorPadre;
+    @FXML
+    private Label label_Cambio;
+    @FXML
+    private Label label_Base;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         convertidor =new ConvertidorMonedas();
         cargarComboBox();
-
     }
-
-
+    public void setParentController(CalculadoraConversionesController controlPadre) {
+        this.controladorPadre = controlPadre;
+    }
+    public void setConvertidor(ConvertidorMonedas modelo) {
+        label_Base.setText(modelo.getMonedaBase());
+        label_Cambio.setText(modelo.getMonedaTarget());
+        actualizarValor();
+    }
     @FXML
     public void BTN_AceptarySalir(ActionEvent actionEvent) {
-        convertidor.setMonedaBase(CB_Base.getValue());
-        convertidor.setMonedaTarget(CB_Cambio.getValue());
         convertidor.setValorDelCambio(TF_Valor.getText().toString());
+        if(controladorPadre != null) {
+            controladorPadre.setConvertidor(convertidor);
+        }
         Stage miStage = (Stage) this.BTN_SALIR.getScene().getWindow();
         miStage.close();
     }
@@ -52,14 +59,15 @@ public class PanelConversion implements Initializable {
     }
 
     private void cargarComboBox(){
-        CB_Base.getItems().addAll(convertidor.getTargetCurrencies());
-        CB_Cambio.getItems().addAll(convertidor.getTargetCurrencies());
-        CB_Base.setOnAction(event -> actualizarValor());
-        CB_Cambio.setOnAction(event -> actualizarValor());
+        label_Base.setText(convertidor.getMonedaBase());
+        label_Cambio.setText(convertidor.getMonedaTarget());
+        //CB_Base.setOnAction(event -> actualizarValor());
+        //CB_Cambio.setOnAction(event -> actualizarValor());
+
     }
     private void actualizarValor(){
-        if(CB_Base.getValue()!=null && CB_Cambio.getValue()!=null){
-            TF_Valor.setText(convertidor.getExchangeRate(CB_Base.getValue(),CB_Cambio.getValue()));
+        if(label_Base.getText()!=null && label_Cambio.getText()!=null){
+            TF_Valor.setText(convertidor.getExchangeRate(label_Base.getText(),label_Cambio.getText()));
         }
     }
 }

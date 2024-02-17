@@ -79,6 +79,7 @@ public class CalculadoraConversionesController implements Initializable {
         memoria="";
         convertidor= new ConvertidorMonedas();
         opciones=List.of("Monedas", "Longitud", "Tiempo");
+
     }
 
     public double getTamañoPreferidoAncho() {
@@ -153,8 +154,13 @@ public class CalculadoraConversionesController implements Initializable {
     }
     @FXML
     public void click_resultado(ActionEvent actionEvent) {
-            double numero=Double.parseDouble(operacion);
-            double conversor =Double.parseDouble(convertidor.getExchangeRate(String.valueOf(CB_dos.getValue()),String.valueOf(CB_tres.getValue())));
+        double numero=Double.parseDouble(operacion);
+        double conversor;
+        if(convertidor.getValorDelCambio()!=null){
+            conversor = Double.parseDouble(convertidor.getValorDelCambio());
+        }else {
+            conversor = Double.parseDouble(convertidor.getExchangeRate(String.valueOf(CB_dos.getValue()), String.valueOf(CB_tres.getValue())));
+        }
             operacion= String.valueOf(Operaciones_Matematicas.redondear(numero*conversor));
             label_Resultado.setText(operacion);
     }
@@ -260,10 +266,31 @@ public class CalculadoraConversionesController implements Initializable {
     public void CventanaValorMoneda(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/Vista/panelConversion.fxml"));
         Pane root = (Pane) loader.load();
+        PanelConversion controlador = loader.getController();
+        controlador.setParentController(this);
+
+        convertidor.setMonedaBase(CB_dos.getValue().toString());
+        convertidor.setMonedaTarget(CB_tres.getValue().toString());
+        controlador.setConvertidor(convertidor);
+
         Stage stage = new Stage();
         stage.setTitle("Panel de Ajustes Conversion");
         stage.setScene(new Scene(root));
         stage.initModality(Modality.WINDOW_MODAL);
-        stage.show();
+        stage.showAndWait();
+
+
+    }
+
+    public void setConvertidor(ConvertidorMonedas modelo){
+        convertidor.setValorDelCambio(modelo.getValorDelCambio());
+        l_memoria.setText(convertidor.getValorDelCambio());
+        memoria= convertidor.getValorDelCambio();
+
+    }
+
+    @FXML
+    public void Mem_limpiar(ActionEvent actionEvent) {
+        memoria="";
     }
 }
