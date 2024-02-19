@@ -34,6 +34,9 @@ public class PanelConversion implements Initializable {
         convertidor =new ConvertidorMonedas();
         cargarComboBox();
     }
+
+
+
     public void setParentController(CalculadoraConversionesController controlPadre) {
         this.controladorPadre = controlPadre;
     }
@@ -42,6 +45,10 @@ public class PanelConversion implements Initializable {
         label_Cambio.setText(modelo.getMonedaTarget());
         actualizarValor();
     }
+
+
+
+
     @FXML
     public void BTN_AceptarySalir(ActionEvent actionEvent) {
         convertidor.setValorDelCambio(TF_Valor.getText().toString());

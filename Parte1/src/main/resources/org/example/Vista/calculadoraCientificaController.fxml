@@ -496,7 +496,7 @@
             </GridPane>
             <MenuBar layoutX="23.0" layoutY="14.0" prefHeight="30.0" prefWidth="308.0" stylesheets="@../../../styles/estilo.css">
                <menus>
-                  <Menu mnemonicParsing="false" text="Archivo">
+                  <Menu mnemonicParsing="false" text="Modo">
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#CventanaNormal" text="Normal">
                            <graphic>

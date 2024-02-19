@@ -17,6 +17,7 @@ public class Main extends Application {
         Image icon = new Image(getClass().getResourceAsStream(path));
         stage.getIcons().add(icon);
         stage.setTitle("Calculadora");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

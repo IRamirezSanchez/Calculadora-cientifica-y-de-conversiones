@@ -421,7 +421,7 @@
       </GridPane>
       <MenuBar layoutY="6.0" prefHeight="30.0" prefWidth="308.0">
          <menus>
-            <Menu mnemonicParsing="false" text="Archivo">
+            <Menu mnemonicParsing="false" text="Modo">
                <items>
                   <MenuItem fx:id="cientifica" mnemonicParsing="false" onAction="#abrirCientifica" text="Cientifica">
                      <graphic>
@@ -443,18 +443,6 @@
                               <Image url="@../../../images/icons8-cambio-de-divisas-35.png" />
                            </image>
                         </ImageView>
-                     </graphic>
-                  </MenuItem>
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Ayuda">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="About">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/icons8-ayuda-30.png" />
-                           </image></ImageView>
                      </graphic>
                   </MenuItem>
                </items>

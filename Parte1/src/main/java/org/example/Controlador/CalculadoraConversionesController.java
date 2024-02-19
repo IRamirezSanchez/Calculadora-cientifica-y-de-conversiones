@@ -6,10 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -54,8 +51,6 @@ public class CalculadoraConversionesController implements Initializable {
     @FXML
     private Button b_cinco;
     @FXML
-    private ChoiceBox CB_uno;
-    @FXML
     private Button c_limpiar;
     @FXML
     private Label label_Resultado;
@@ -70,7 +65,10 @@ public class CalculadoraConversionesController implements Initializable {
     private String operacion;
     private String memoria;
     private ConvertidorMonedas convertidor;
+    private Operaciones_Matematicas operacionConvertir;
     private List<String> opciones;
+    @FXML
+    private ComboBox CB_uno;
 
 
     @Override
@@ -78,7 +76,8 @@ public class CalculadoraConversionesController implements Initializable {
         operacion="";
         memoria="";
         convertidor= new ConvertidorMonedas();
-        opciones=List.of("Monedas", "Longitud", "Tiempo");
+        operacionConvertir = new Operaciones_Matematicas();
+        opciones=List.of("Monedas", "Longitud", "Tiempo","Masa");
 
     }
 
@@ -154,14 +153,33 @@ public class CalculadoraConversionesController implements Initializable {
     }
     @FXML
     public void click_resultado(ActionEvent actionEvent) {
-        double numero=Double.parseDouble(operacion);
-        double conversor;
-        if(convertidor.getValorDelCambio()!=null){
-            conversor = Double.parseDouble(convertidor.getValorDelCambio());
-        }else {
-            conversor = Double.parseDouble(convertidor.getExchangeRate(String.valueOf(CB_dos.getValue()), String.valueOf(CB_tres.getValue())));
+        if(operacion.isEmpty()){
+            return;
         }
+        double numero=Double.parseDouble(operacion);
+        double conversor=0;
+        if(convertidor.getValorDelCambio()!=null){
+            label_control.setText("");
+            conversor = Double.parseDouble(convertidor.getValorDelCambio());
+            operacion= String.valueOf(Operaciones_Matematicas.comprobarNumeroEntero(numero*conversor));
+        }else if(convertidor.getValorDelCambio()==null && CB_uno.getValue().equals("Monedas")){
+            label_control.setText("");
+            conversor = Double.parseDouble(convertidor.getExchangeRate(String.valueOf(CB_dos.getValue()), String.valueOf(CB_tres.getValue())));
             operacion= String.valueOf(Operaciones_Matematicas.redondear(numero*conversor));
+        }else if ("Longitud".equals(CB_uno.getValue())) {
+            label_control.setText("");
+            operacion=String.valueOf(operacionConvertir.convertir("Longitud",CB_dos.getValue().toString(),CB_tres.getValue().toString(),Double.parseDouble(operacion)));
+        } else if (CB_uno.getValue().equals("Tiempo")) {
+            label_control.setText("");
+            operacion=String.valueOf(operacionConvertir.convertir("Tiempo",CB_dos.getValue().toString(),CB_tres.getValue().toString(),Double.parseDouble(operacion)));
+        } else if (CB_uno.getValue().equals("Masa")) {
+            label_control.setText("");
+            operacion=String.valueOf(operacionConvertir.convertir("Masa",CB_dos.getValue().toString(),CB_tres.getValue().toString(),Double.parseDouble(operacion)));
+        }else {
+            label_control.setText("Sin Seleccionar (Azul)");
+            return;
+        }
+
             label_Resultado.setText(operacion);
     }
 
@@ -173,21 +191,37 @@ public class CalculadoraConversionesController implements Initializable {
 
     @FXML
     public void opcionesDisponibles(Event event) {
+        label_Resultado.setText("");
         CB_uno.getItems().clear();
+        CB_dos.getItems().clear();
+        CB_tres.getItems().clear();
         CB_uno.getItems().addAll(opciones);
 
         CB_uno.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.equals("Monedas")) {
-                CB_dos.getItems().clear();
-                CB_tres.getItems().clear();
-                CB_dos.getItems().addAll(convertidor.getTargetCurrencies());
-                CB_tres.getItems().addAll(convertidor.getTargetCurrencies());
-            } else if (newValue.equals("Longitud")) {
-                System.out.println("Seleccionado: Longitud");
-            } else if (newValue.equals("Tiempo")) {
-                System.out.println("Seleccionado: Tiempo");
-            } else {
-                System.out.println("Selección no reconocida");
+            if(newValue!=null) {
+                if (newValue.equals("Monedas")) {
+                    CB_dos.getItems().clear();
+                    CB_tres.getItems().clear();
+                    CB_dos.getItems().addAll(convertidor.getTargetCurrencies());
+                    CB_tres.getItems().addAll(convertidor.getTargetCurrencies());
+                } else if (newValue.equals("Longitud")) {
+                    CB_dos.getItems().clear();
+                    CB_tres.getItems().clear();
+                    CB_dos.getItems().addAll(operacionConvertir.getUnidadesLongitud());
+                    CB_tres.getItems().addAll(operacionConvertir.getUnidadesLongitud());
+                } else if (newValue.equals("Tiempo")) {
+                    CB_dos.getItems().clear();
+                    CB_tres.getItems().clear();
+                    CB_dos.getItems().addAll(operacionConvertir.getUnidadesTiempo());
+                    CB_tres.getItems().addAll(operacionConvertir.getUnidadesTiempo());
+                } else if (newValue.equals("Masa")) {
+                    CB_dos.getItems().clear();
+                    CB_tres.getItems().clear();
+                    CB_dos.getItems().addAll(operacionConvertir.getUnidadesMasa());
+                    CB_tres.getItems().addAll(operacionConvertir.getUnidadesMasa());
+                } else {
+                    System.out.println("Selección no reconocida");
+                }
             }
         });
     }
@@ -264,21 +298,29 @@ public class CalculadoraConversionesController implements Initializable {
 
     @FXML
     public void CventanaValorMoneda(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/Vista/panelConversion.fxml"));
-        Pane root = (Pane) loader.load();
-        PanelConversion controlador = loader.getController();
-        controlador.setParentController(this);
 
-        convertidor.setMonedaBase(CB_dos.getValue().toString());
-        convertidor.setMonedaTarget(CB_tres.getValue().toString());
-        controlador.setConvertidor(convertidor);
+        if(CB_uno.getValue()==null||CB_dos.getValue()==null||CB_tres.getValue()==null){
+            label_Resultado.setText("Elige Moneda");
 
-        Stage stage = new Stage();
-        stage.setTitle("Panel de Ajustes Conversion");
-        stage.setScene(new Scene(root));
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.showAndWait();
+        }else {
+            label_Resultado.setText("");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/Vista/panelConversion.fxml"));
+            Pane root = (Pane) loader.load();
 
+            PanelConversion controlador = loader.getController();
+            controlador.setParentController(this);
+
+            convertidor.setMonedaBase(CB_dos.getValue().toString());
+            convertidor.setMonedaTarget(CB_tres.getValue().toString());
+            controlador.setConvertidor(convertidor);
+
+            Stage stage = new Stage();
+            stage.setTitle("Panel de Ajustes Conversion");
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.setResizable(false);
+            stage.showAndWait();
+        }
 
     }
 
@@ -291,6 +333,8 @@ public class CalculadoraConversionesController implements Initializable {
 
     @FXML
     public void Mem_limpiar(ActionEvent actionEvent) {
+        convertidor.setValorDelCambio(null);
         memoria="";
+        l_memoria.setText("");
     }
 }

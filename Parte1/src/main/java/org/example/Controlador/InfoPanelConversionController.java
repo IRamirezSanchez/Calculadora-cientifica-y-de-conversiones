@@ -12,6 +12,9 @@ public class InfoPanelConversionController implements Initializable {
 
     @FXML
     private Label label_model;
+    @FXML
+    private Label label_model2;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -21,7 +24,10 @@ public class InfoPanelConversionController implements Initializable {
 
 
     private void cargarLabel(){
-
+        label_model2.setText("Cambiar el valor del cambio:\n Elige en los comboBox las monedas.\n" +
+                "Entra en 'Edicion' -> 'Valor cambio'\n" +
+                "Una vez validado, No cambies la moneda.\n" +
+                "Para volver al valor standard Pulsa -> 'Mem' ");
         label_model.setText("USD: Dólar estadounidense - Estados Unidos\n" +
                 "GBP: Libra esterlina - Reino Unido.\n" +
                 "AUD: Dólar australiano - Australia.\n" +
