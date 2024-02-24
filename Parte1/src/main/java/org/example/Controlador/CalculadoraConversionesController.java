@@ -113,7 +113,7 @@ public class CalculadoraConversionesController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Informacion Monetaria");
         stage.setScene(new Scene(root));
-        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
     }
 
@@ -317,7 +317,7 @@ public class CalculadoraConversionesController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Panel de Ajustes Conversion");
             stage.setScene(new Scene(root));
-            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setResizable(false);
             stage.showAndWait();
         }
