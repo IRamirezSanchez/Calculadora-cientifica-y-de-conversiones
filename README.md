@@ -15,8 +15,9 @@ La calculadora tiene un **menú superior** que tiene tres entradas de *Modo*, *E
 - **Edicion:** Navegacion hacia la calculadora **conversión**. 
 - **Ayuda:** Contiene un **historial** de las operaciones que has realizado mediante un *ListView*.
 
-![](media/calculadora_sencilla_apagada.png) 
-
+<p align="center">
+  <img src="media/calculadora_sencilla_apagada.png" alt="Calculadora Sencilla">
+</p>
 
 ## Calculadora Cientifica
 
@@ -27,8 +28,9 @@ Podrás navegar hacia la **Calculadora cientifica** y la de **conversiones**.
 - Introduce el **valor** y al seleccionar *seno*, *coseno* y *tangente* se calculará **automaticamente**.
 - Para realizar exponenciales, seleccionaló y generará el resultado con el *igual*.
 
-![](media/calculadora_cientifica.png) 
-
+<p align="center">
+  <img src="media/calculadora_cientifica.png" alt="Calculadora Cientifica">
+</p>
 
 ## Calculadora de Conversion
 
@@ -36,16 +38,25 @@ El **sistema de conversiones** tiene un *Combobox* principal para seleccionar el
 
 - Elige desde los **combobox Azules** el valor de *origen* y valor *destino*.
 
-![](media/calculadora_conversion.png) 
+<p align="center">
+  <img src="media/calculadora_conversion.png" alt="Calculadora Conversion">
+</p>
 
 - El valor de conversion de las monedas se gestiona *automaticamente* a traves de una **API**.
 
-![](media/calculadora_conversion_Combobox_monedas.png) 
+
+<p align="center">
+  <img src="media/calculadora_conversion_Combobox_monedas.png" alt="Calculadora de Conversión ComboBox">
+</p>
 
 - Para las conversiones monetarias podrás cambiar el *valor de conversión* en el menu superior **Valor Conversion** que se abrirá desde el **menú Edición**.
 
-![](media/calculadora_conversion_edicion_Valor.png) 
+<p align="center">
+  <img src="media/calculadora_conversion_edicion_Valor.png" alt="Valor de Conversión">
+</p>
 
 - Vista Panel Conversion.
 
-![](media/calculadora_conversion_Edicion_ajuste_cambio_moneda.png) 
+<p align="center">
+  <img src="media/calculadora_conversion_Edicion_ajuste_cambio_moneda.png" alt="Panel de Conversión">
+</p>
