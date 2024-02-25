@@ -52,7 +52,7 @@ El **sistema de conversiones** tiene un *Combobox* principal para seleccionar el
 - Para las conversiones monetarias podrás cambiar el *valor de conversión* en el menu superior **Valor Conversion** que se abrirá desde el **menú Edición**.
 
 <p align="center">
-  <img src="media/calculadora_conversion_edicion_Valor.png" alt="Valor de Conversión">
+  <img src="media/calculadora_conversion_edicion_Valores.png" alt="Valor de Conversión">
 </p>
 
 - Vista Panel Conversion.
