@@ -11,6 +11,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.example.Modelo.Operaciones_Matematicas;
 
@@ -77,6 +78,8 @@ public class CalculadoraController implements Initializable
     private MenuItem cientifica;
     @FXML
     private AnchorPane ventanaNormal;
+    private HistorialCalculadoraController historial;
+    private List<String> listaOperaciones;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -85,6 +88,9 @@ public class CalculadoraController implements Initializable
         flag=false;
         controlOperador(true);
         label_Resultado.requestFocus();
+        listaOperaciones=new ArrayList<>();
+
+
 
     }
     private void mostrarMensajeError(String mensaje) {
@@ -223,6 +229,7 @@ public class CalculadoraController implements Initializable
 
     @FXML
     public void click_resultado(ActionEvent actionEvent) {
+        listaOperaciones.add(operacion);
         String [] partes = operacion.split("[/*\\-+]");
         if (partes.length >= 2) {
             double resultado = Double.parseDouble(partes[0]);
@@ -267,6 +274,7 @@ public class CalculadoraController implements Initializable
             label_control.setVisible(false);
             enMemoria=String.valueOf(resultado);
             operacion=enMemoria;
+            listaOperaciones.add(operacion);
             enMemoria="";
         } else {
             mostrarMensajeError("Error! Formato incorrecto.");
@@ -362,5 +370,24 @@ public class CalculadoraController implements Initializable
             }
         }
         controlOperador(false);
+    }
+
+    @FXML
+    public void CventanaHistorial(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/Vista/historialCalculadoraController.fxml"));
+        Pane root = (Pane) loader.load();
+
+        //Actualizar información del modelo
+
+        historial = loader.getController();
+        historial.setListaElementos(listaOperaciones,this);
+        Scene scene = new Scene(root);
+        Stage stageWindow = new Stage();
+        stageWindow.setTitle("Ventana Secundaria");
+        stageWindow.setScene(scene);
+        stageWindow.initModality(Modality.APPLICATION_MODAL);
+        stageWindow.showAndWait();
+
+        //Regenerar información
     }
 }
