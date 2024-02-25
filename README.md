@@ -1,11 +1,11 @@
 # Práctica 7.3 Calculadora científica y de conversiones
 
-> El **Proyecto** esta construido por 3 tipos de calculadoras:
+> En el **Proyecto** dentro de **Parte1** contiene el fichero **jar**, para poder ejecutarse. 
+> El proyecto esta construido por 3 tipos de calculadoras:
 > - Sencilla
 > - Cientifica
 > - Conversion
----
-> Dentro de **Parte1** contiene el fichero **jar**, para poder ejecutarse.
+
 
 ## Calculadora Sencilla
 
@@ -41,8 +41,11 @@ El **sistema de conversiones** tiene un *Combobox* principal para seleccionar el
 - El valor de conversion de las monedas se gestiona *automaticamente* a traves de una **API**.
 
 ![](media/calculadora_conversion_Combobox_monedas.png) 
+
 - Para las conversiones monetarias podrás cambiar el *valor de conversión* en el menu superior **Valor Conversion** que se abrirá desde el **menú Edición**.
 
 ![](media/calculadora_conversion_edicion_Valor.png) 
+
+- Vista Panel Conversion.
 
 ![](media/calculadora_conversion_Edicion_ajuste_cambio_moneda.png) 
